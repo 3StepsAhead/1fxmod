@@ -34,7 +34,7 @@ CheckCommands(){ # Check all of the "custom" commands that we are going to need.
 			printf "\n"
 }
 AreLinksAlive(){ # Check if the links that we are going to download from are alive.
-     printf "Checking if links that we are going to download from alive alive\n\n"
+     printf "Checking now if the download links are alive.\n\n"
     
 	if wget $sof2ded -q --spider ;then
 		printf "$Default[$Green OK $Default] sof2ded download link seems to be alive..\n"
