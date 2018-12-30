@@ -18,6 +18,6 @@ export White='\033[0;37m'        # Whit
 export NCURSES_NO_UTF8_ACS=1 
 
 #Links that we will use:
-export sof2ded="http://1fxmod.org/cleanexe/v1.00/sof2ded"
+#export sof2ded="http://1fxmod.org/cleanexe/v1.00/sof2ded"
 export boelink="http://1fx.uk.to/games/SoF2%20-%201.00.zip"
 export caserunlink="http://caserun.com/games/full.zip"

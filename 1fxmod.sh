@@ -37,6 +37,7 @@ main(){
 	intro          # introduction
 	ProcessFiles   # SoF2  
 	ProcessMod     # 1fx Mod
+	ProcessSounds  # 1fx Mod's Sounds
 	CleanUpFiles   # File Clean up
 }
 

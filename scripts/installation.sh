@@ -34,8 +34,9 @@ SELECT=$(dialog --clear \
   esac  
   
   #Download sof2ded first before doing anything else.
-  ProcessDownloads "$sof2ded" "Downloading [sof2ded] from 1fx. Website."
-
+  #ProcessDownloads "$sof2ded" "Downloading [sof2ded] from 1fx. Website."
+  # -- no longer needed pff BOOBMAN :(!!! 
+  
   #SoF2 Download Stuff.
   if $caserun == true ; then
      ProcessDownloads "$caserunlink" "Downloading [SoF2 1.00] from caserun Website" 
@@ -84,6 +85,45 @@ ProcessMod(){
   
   #Move to SoF2 Directory.
   mv /tmp/Server\ files/1fx /home/SoF2/
-  mv /tmp/sof2ded /home/SoF2/ 
+  mv /tmp/Server\ files/sof2ded /home/SoF2/ 
   chmod +x /home/SoF2/sof2ded #Executable Permission.
+  
+}
+
+#An extra step is required here, due to the new chat system from boe.
+#ask the user if they want to include the classic RPM sounds.
+
+function ProcessSounds(){
+  
+SOUNDSYSTEM=(1 "RPM+MVCHAT" 2 "MVCHAT" ) 
+extended=false
+mvchat=false
+
+Option=$(dialog --clear \
+                --title "[1fx] Sounds" \
+                --menu "Please select one of the following options:\n\n [RPM+MVCHAT] => Classic RPM Sounds + Extended Sounds
+                \n [MVCHAT] => Extended Sounds only\n " \
+                25 50 4 \
+                "${SOUNDSYSTEM[@]}"\
+               2>&1 >/dev/tty)
+
+    clear
+
+case $Option in  
+  1)
+   extended=true ;; 
+  2)
+   mvchat=true ;; 
+
+  esac
+
+  if $extended == true ; then
+     mv /tmp/Optional\ files/RPM\ soundpack/rpm\ +\ extended.mvchat /home/SoF2/1fx/files/mvchats/
+     rm /home/SoF2/1fx/files/mvchats/extended.mvchat 
+     rm -rf /tmp/Optional\ files
+  elif $mvchat == true ; then
+	   rm -rf /tmp/Optional\ files
+	fi
+
+   clear
 }

@@ -36,12 +36,12 @@ CheckCommands(){ # Check all of the "custom" commands that we are going to need.
 AreLinksAlive(){ # Check if the links that we are going to download from are alive.
      printf "Checking now if the download links are alive.\n\n"
     
-	if wget $sof2ded -q --spider ;then
-		printf "$Default[$Green OK $Default] sof2ded download link seems to be alive..\n"
-	else	
-		printf "$Default[$Yellow WARNING $Default] sof2ded link seems to be down..\n"
-	fi
-	sleep 2
+#	if wget $sof2ded -q --spider ;then
+#		printf "$Default[$Green OK $Default] sof2ded download link seems to be alive..\n"
+#	else	
+#		printf "$Default[$Yellow WARNING $Default] sof2ded link seems to be down..\n"
+#	fi
+#	sleep 2
 	if wget $boelink -q --spider ;then
 		printf "$Default[$Green OK $Default] [1fx] SoF2 1.00 link seems to be alive..\n"
 	else	
